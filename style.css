@@ -2,4 +2,20 @@ body{
     margin: 0;
     padding: 0;
     background-color: #dfe6e9;
+    min-height: 100vh;
+}
+#lists{
+    background-color: white;
+    list-style: none;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    padding: 0;
+}
+#lists li{
+    margin: 0;
+    padding: 7px 10px;
+    width: 100%;
+}
+#lists li:hover{
+    background-color: #dfe6e9;
 }

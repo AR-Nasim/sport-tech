@@ -1,5 +1,6 @@
 const input = document.getElementById("team-input");
 const parent = document.getElementById("parent-div");
+const lists = document.getElementById("lists");
 
 function displayDetails(data) {
     const array = data.teams;
@@ -21,6 +22,17 @@ function displayDetails(data) {
     });
 }
 
+function displaySearch(data){
+    const array = data.teams;
+    lists.textContent = '';
+    for (let i = 0; i < Math.min(array.length,7); i++) {
+        const element = array[i].strTeam;
+        const list = document.createElement("li");
+        list.innerText = element;
+        lists.appendChild(list);
+    }
+}
+
 function getTeamInfo() {
     const team = input.value;
     const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
@@ -30,5 +42,29 @@ function getTeamInfo() {
 }
 
 input.addEventListener("keyup", () => {
-    // console.log(input.value);
+    const team = input.value;
+    if(team != ""){
+        const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => displaySearch(data));
+    }
+    else{
+        lists.textContent = "";
+    }
 });
+
+document.getElementById("container").addEventListener("click", (event) => {
+    if(event.target.id != lists){
+        lists.textContent = '';
+    }
+});
+
+lists.addEventListener("click", (event) => {
+    const team = event.target.innerText;
+    input.value = team;
+    const url = `https://www.thesportsdb.com/api/v1/json/1/searchteams.php?t=${team}`;
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => displayDetails(data));
+})

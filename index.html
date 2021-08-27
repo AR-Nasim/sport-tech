@@ -15,20 +15,21 @@
     <title>Sports DB</title>
 </head>
 
-<body>
+<body id="container">
     <div class="container">
         <form class="col-md-6 m-auto py-5">
-            <div class="input-group mb-3">
-                <input id="team-input" type="search" class="form-control" placeholder="Search for club"
+            <div class="input-group">
+                <input id="team-input" type="text" class="form-control" placeholder="Search for club"
                     autocomplete="off">
                 <div class="input-group-append">
                     <button onclick="getTeamInfo()" type="button" class="btn btn-success">Search</button>
                 </div>
             </div>
-        </form>
-        <ul>
+            <ul id="lists">
 
-        </ul>
+            </ul>
+        </form>
+        
         <div id="parent-div" class="row row-cols-1 row-cols-md-4 g-4">
             
         </div>
