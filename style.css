@@ -1,18 +1,5 @@
 body{
     margin: 0;
     padding: 0;
-    background-image: url(images/618.jpg);
-    background-size: cover;
-}
-.container{
-    margin-top: 200px;
-    width: 40%;
-}
-.form-control{
-    height: 60px;
-    border: none;
-    outline: none;
-}
-.input-group-text{
-    padding: 0 30px;
+    background-color: #dfe6e9;
 }
